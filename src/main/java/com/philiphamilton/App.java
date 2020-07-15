@@ -1,5 +1,7 @@
 package com.philiphamilton;
 
+import com.philiphamilton.linkedlist.SinglyLinkedNode;
+
 /**
  * Hello world!
  *
@@ -8,6 +10,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        SinglyLinkedNode<Integer> head = new SinglyLinkedNode<Integer>(null, 1);
+
+
     }
 }
