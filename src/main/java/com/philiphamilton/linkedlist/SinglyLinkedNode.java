@@ -2,8 +2,13 @@ package com.philiphamilton.linkedlist;
 
 public class SinglyLinkedNode<T> {
 
-    SinglyLinkedNode next;
-    T data;
+    private SinglyLinkedNode next;
+    private T data;
+
+    public SinglyLinkedNode(T data) {
+        this.data = data;
+        this.next = null;
+    }
 
     public SinglyLinkedNode(SinglyLinkedNode next, T data) {
         this.next = next;
