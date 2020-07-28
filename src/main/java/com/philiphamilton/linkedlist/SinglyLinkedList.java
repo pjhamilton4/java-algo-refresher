@@ -74,6 +74,12 @@ public class SinglyLinkedList<T> {
     }
 
     public boolean contains(T target) {
+        SinglyLinkedNode<T> tempNode = this.head;
+        while (tempNode.getNext() != null) {
+            if (tempNode.getData().equals(target)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -81,9 +87,40 @@ public class SinglyLinkedList<T> {
         this.head = this.head.getNext();
     }
 
-    public void removeNthNode() {
+    public void removeNthNode(int position) {
+        if (isEmpty()) {
+            return;
+        }
 
+        if (position == 0) {
+            if (this.head.getNext() != null) {
+                this.head = this.head.getNext();
+            } else {
+                this.head = null;
+            }
+            this.size--;
+            return;
+        }
+
+        SinglyLinkedNode<T> prevNode = this.head;
+        SinglyLinkedNode<T> currNode = this.head;
+
+        int count = 1;
+
+        while (currNode.getNext() != null) {
+            if (count == position) {
+                prevNode.setNext(currNode.getNext());
+                this.size--;
+                break;
+            } else {
+                count++;
+                prevNode = currNode;
+                currNode = currNode.getNext();
+            }
+        }
     }
+
+}
 
     public T getFirst() {
         return this.head.getData();
@@ -98,7 +135,7 @@ public class SinglyLinkedList<T> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         SinglyLinkedNode<T> tempNode = this.head;
         int nodeNumber = 1;
