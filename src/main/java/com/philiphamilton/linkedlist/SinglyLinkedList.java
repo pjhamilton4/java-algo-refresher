@@ -84,7 +84,11 @@ public class SinglyLinkedList<T> {
     }
 
     public void removeFirst() {
-        this.head = this.head.getNext();
+        if(isEmpty()){
+            return;
+        }else {
+            this.head = this.head.getNext();
+        }
     }
 
     public void removeNthNode(int position) {
@@ -120,10 +124,12 @@ public class SinglyLinkedList<T> {
         }
     }
 
-}
-
     public T getFirst() {
-        return this.head.getData();
+        if(!isEmpty()){
+            return this.head.getData();
+        }else{
+            return null;
+        }
     }
 
     public T getLast() {
@@ -138,24 +144,28 @@ public class SinglyLinkedList<T> {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         SinglyLinkedNode<T> tempNode = this.head;
-        int nodeNumber = 1;
-        builder.append("[");
-        builder.append("<<HEAD>>");
-        builder.append(" | Data: ");
-        builder.append(this.head.getData());
-        builder.append("]");
-        builder.append(" -> ");
-        while (tempNode.getNext() != null) {
-            tempNode = tempNode.getNext();
+        if(tempNode != null) {
+            int nodeNumber = 1;
             builder.append("[");
-            builder.append("Node Number: ");
-            builder.append(nodeNumber);
+            builder.append("<<HEAD>>");
             builder.append(" | Data: ");
-            builder.append(tempNode.getData());
+            builder.append(this.head.getData());
             builder.append("]");
             builder.append(" -> ");
+            while (tempNode.getNext() != null) {
+                tempNode = tempNode.getNext();
+                builder.append("[");
+                builder.append("Node Number: ");
+                builder.append(nodeNumber);
+                builder.append(" | Data: ");
+                builder.append(tempNode.getData());
+                builder.append("]");
+                builder.append(" -> ");
 
-            nodeNumber++;
+                nodeNumber++;
+            }
+        }else{
+            return "[ LIST IS EMPTY ]";
         }
         return builder.toString();
     }

@@ -1,7 +1,6 @@
 package com.philiphamilton;
 
 import com.philiphamilton.linkedlist.SinglyLinkedList;
-import com.philiphamilton.linkedlist.SinglyLinkedNode;
 
 /**
  * Hello world!
