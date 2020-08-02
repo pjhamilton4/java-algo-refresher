@@ -1,15 +1,17 @@
 package com.philiphamilton.linkedlist;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SinglyLinkedListTest {
 
     SinglyLinkedList<Integer> linkedList;
 
-    @Before
-    public void before(){
+    @BeforeEach
+    public void init() {
         System.out.println("---------------------------------------");
         linkedList = new SinglyLinkedList<Integer>();
     }
