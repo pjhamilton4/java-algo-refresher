@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SinglyLinkedList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">algo-refresh</a> &gt; <a href="index.source.html" class="el_package">com.philiphamilton.linkedlist</a> &gt; <span class="el_source">SinglyLinkedList.java</span></div><h1>SinglyLinkedList.java</h1><pre class="source lang-java linenums">package com.philiphamilton.linkedlist;
+
+public class SinglyLinkedList&lt;T&gt; {
+
+    private SinglyLinkedNode&lt;T&gt; head;
+    private SinglyLinkedNode&lt;T&gt; tail;
+<span class="pc" id="L7">    private long size = 0;</span>
+
+<span class="fc" id="L9">    public SinglyLinkedList() {</span>
+<span class="fc" id="L10">    }</span>
+
+<span class="nc" id="L12">    public SinglyLinkedList(T data) {</span>
+<span class="nc" id="L13">        SinglyLinkedNode&lt;T&gt; tempNode = new SinglyLinkedNode&lt;T&gt;(data);</span>
+<span class="nc" id="L14">        this.head = tempNode;</span>
+<span class="nc" id="L15">        this.tail = tempNode;</span>
+<span class="nc" id="L16">        this.size = 1;</span>
+<span class="nc" id="L17">    }</span>
+
+<span class="nc" id="L19">    public SinglyLinkedList(SinglyLinkedNode node) {</span>
+<span class="nc" id="L20">        this.head = node;</span>
+<span class="nc" id="L21">        this.tail = node;</span>
+<span class="nc" id="L22">        this.size = 1;</span>
+<span class="nc" id="L23">    }</span>
+
+    public boolean isEmpty() {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        return head == null;</span>
+    }
+
+    public void insertAtEnd(SinglyLinkedNode node) {
+<span class="fc" id="L30">        this.tail.setNext(node);</span>
+<span class="fc" id="L31">        this.tail = node;</span>
+<span class="fc" id="L32">        this.size++;</span>
+<span class="fc" id="L33">    }</span>
+
+    public void insertAtEnd(T data) {
+<span class="fc" id="L36">        SinglyLinkedNode&lt;T&gt; node = new SinglyLinkedNode&lt;T&gt;(data);</span>
+<span class="fc" id="L37">        this.tail.setNext(node);</span>
+<span class="fc" id="L38">        this.tail = node;</span>
+<span class="fc" id="L39">        this.size++;</span>
+<span class="fc" id="L40">    }</span>
+
+    public void insertAtBeginning(SinglyLinkedNode node) {
+<span class="fc" id="L43">        node.setNext(head);</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if(isEmpty()){</span>
+<span class="fc" id="L45">            this.tail = node;</span>
+        }
+<span class="fc" id="L47">        this.head = node;</span>
+<span class="fc" id="L48">        this.size++;</span>
+<span class="fc" id="L49">    }</span>
+
+    public void insertAtBeginning(T data) {
+<span class="fc" id="L52">        SinglyLinkedNode&lt;T&gt; node = new SinglyLinkedNode&lt;T&gt;(data);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if(isEmpty()){</span>
+<span class="fc" id="L54">            this.tail = node;</span>
+        }
+<span class="fc" id="L56">        node.setNext(head);</span>
+<span class="fc" id="L57">        this.head = node;</span>
+<span class="fc" id="L58">        this.size++;</span>
+<span class="fc" id="L59">    }</span>
+
+    public void addNodeAt(int position, T data) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        if (isEmpty()) {</span>
+<span class="fc" id="L63">            this.head = new SinglyLinkedNode&lt;T&gt;(data);</span>
+<span class="fc" id="L64">            this.tail = head;</span>
+<span class="fc" id="L65">            this.size++;</span>
+        } else {
+<span class="fc" id="L67">            SinglyLinkedNode&lt;T&gt; tempNode = this.head;</span>
+<span class="fc" id="L68">            int count = 0;</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">            while (tempNode.getNext() != null) {</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                if (count == position) {</span>
+<span class="nc" id="L71">                    SinglyLinkedNode&lt;T&gt; newNode = new SinglyLinkedNode&lt;T&gt;(tempNode.getNext(), data);</span>
+<span class="nc" id="L72">                    tempNode.setNext(newNode);</span>
+<span class="nc" id="L73">                    this.size++;</span>
+<span class="nc" id="L74">                    break;</span>
+                } else {
+<span class="fc" id="L76">                    count++;</span>
+<span class="fc" id="L77">                    tempNode = tempNode.getNext();</span>
+                }
+            }
+        }
+<span class="fc" id="L81">    }</span>
+
+    public boolean contains(T target) {
+<span class="nc" id="L84">        SinglyLinkedNode&lt;T&gt; tempNode = this.head;</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        while (tempNode.getNext() != null) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if (tempNode.getData().equals(target)) {</span>
+<span class="nc" id="L87">                return true;</span>
+            }
+        }
+<span class="nc" id="L90">        return false;</span>
+    }
+
+    public void removeFirst() {
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if(isEmpty()){</span>
+<span class="fc" id="L95">            return;</span>
+        }else {
+<span class="fc" id="L97">            this.head = this.head.getNext();</span>
+        }
+<span class="fc" id="L99">    }</span>
+
+    public void removeNthNode(int position) {
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (isEmpty()) {</span>
+<span class="fc" id="L103">            return;</span>
+        }
+
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">        if (position == 0) {</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">            if (this.head.getNext() != null) {</span>
+<span class="nc" id="L108">                this.head = this.head.getNext();</span>
+            } else {
+<span class="fc" id="L110">                this.head = null;</span>
+            }
+<span class="fc" id="L112">            this.size--;</span>
+<span class="fc" id="L113">            return;</span>
+        }
+
+<span class="nc" id="L116">        SinglyLinkedNode&lt;T&gt; prevNode = this.head;</span>
+<span class="nc" id="L117">        SinglyLinkedNode&lt;T&gt; currNode = this.head;</span>
+
+<span class="nc" id="L119">        int count = 1;</span>
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        while (currNode.getNext() != null) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">            if (count == position) {</span>
+<span class="nc" id="L123">                prevNode.setNext(currNode.getNext());</span>
+<span class="nc" id="L124">                this.size--;</span>
+<span class="nc" id="L125">                break;</span>
+            } else {
+<span class="nc" id="L127">                count++;</span>
+<span class="nc" id="L128">                prevNode = currNode;</span>
+<span class="nc" id="L129">                currNode = currNode.getNext();</span>
+            }
+        }
+<span class="nc" id="L132">    }</span>
+
+    public T getFirst() {
+<span class="fc bfc" id="L135" title="All 2 branches covered.">        if(!isEmpty()){</span>
+<span class="fc" id="L136">            return this.head.getData();</span>
+        }else{
+<span class="fc" id="L138">            return null;</span>
+        }
+    }
+
+    public T getLast() {
+<span class="fc" id="L143">        return this.tail.getData();</span>
+    }
+
+    public long getSize() {
+<span class="nc" id="L147">        return size;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L152">        StringBuilder builder = new StringBuilder();</span>
+<span class="fc" id="L153">        SinglyLinkedNode&lt;T&gt; tempNode = this.head;</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        if(tempNode != null) {</span>
+<span class="fc" id="L155">            int nodeNumber = 1;</span>
+<span class="fc" id="L156">            builder.append(&quot;[&quot;);</span>
+<span class="fc" id="L157">            builder.append(&quot;&lt;&lt;HEAD&gt;&gt;&quot;);</span>
+<span class="fc" id="L158">            builder.append(&quot; | Data: &quot;);</span>
+<span class="fc" id="L159">            builder.append(this.head.getData());</span>
+<span class="fc" id="L160">            builder.append(&quot;]&quot;);</span>
+<span class="fc" id="L161">            builder.append(&quot; -&gt; &quot;);</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">            while (tempNode.getNext() != null) {</span>
+<span class="fc" id="L163">                tempNode = tempNode.getNext();</span>
+<span class="fc" id="L164">                builder.append(&quot;[&quot;);</span>
+<span class="fc" id="L165">                builder.append(&quot;Node Number: &quot;);</span>
+<span class="fc" id="L166">                builder.append(nodeNumber);</span>
+<span class="fc" id="L167">                builder.append(&quot; | Data: &quot;);</span>
+<span class="fc" id="L168">                builder.append(tempNode.getData());</span>
+<span class="fc" id="L169">                builder.append(&quot;]&quot;);</span>
+<span class="fc" id="L170">                builder.append(&quot; -&gt; &quot;);</span>
+
+<span class="fc" id="L172">                nodeNumber++;</span>
+            }
+<span class="fc" id="L174">        }else{</span>
+<span class="fc" id="L175">            return &quot;[ LIST IS EMPTY ]&quot;;</span>
+        }
+<span class="fc" id="L177">        return builder.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

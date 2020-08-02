@@ -23,6 +23,14 @@ public class SinglyLinkedNode<T> {
         this.next = next;
     }
 
+    @Override
+    public String toString() {
+        return "SinglyLinkedNode{" +
+                //"next=" + next +
+                "data=" + data +
+                '}';
+    }
+
     public T getData() {
         return data;
     }

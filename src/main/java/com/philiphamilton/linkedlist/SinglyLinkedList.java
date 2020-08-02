@@ -41,12 +41,18 @@ public class SinglyLinkedList<T> {
 
     public void insertAtBeginning(SinglyLinkedNode node) {
         node.setNext(head);
+        if(isEmpty()){
+            this.tail = node;
+        }
         this.head = node;
         this.size++;
     }
 
     public void insertAtBeginning(T data) {
         SinglyLinkedNode<T> node = new SinglyLinkedNode<T>(data);
+        if(isEmpty()){
+            this.tail = node;
+        }
         node.setNext(head);
         this.head = node;
         this.size++;
@@ -55,21 +61,31 @@ public class SinglyLinkedList<T> {
     public void addNodeAt(int position, T data) {
         if (isEmpty()) {
             this.head = new SinglyLinkedNode<T>(data);
+            this.tail = this.head;
             this.size++;
         } else {
-            SinglyLinkedNode<T> tempNode = this.head;
-            int count = 0;
-            while (tempNode.getNext() != null) {
-                if (count == position) {
-                    SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(tempNode.getNext(), data);
-                    tempNode.setNext(newNode);
-                    this.size++;
-                    break;
-                } else {
-                    count++;
-                    tempNode = tempNode.getNext();
-                }
-            }
+           SinglyLinkedNode<T> newNode = new SinglyLinkedNode<T>(data);
+           SinglyLinkedNode<T> currNode = this.head;
+           SinglyLinkedNode<T> prevNode = null;
+           if(position == 0){
+               insertAtBeginning(newNode);
+           }else {
+               int index = 0;
+               while( index <= position) {
+                   if (index == position) {
+                       newNode.setNext(currNode);
+                       prevNode.setNext(newNode);
+                       this.size++;
+                       break;
+                   }
+                   if(currNode == null){
+                       break;
+                   }
+                   prevNode = currNode;
+                   currNode = currNode.getNext();
+                   index++;
+               }
+           }
         }
     }
 
@@ -132,6 +148,30 @@ public class SinglyLinkedList<T> {
         }
     }
 
+    public SinglyLinkedNode<T> getAt(int position){
+        if(isEmpty()){
+            return null;
+        }
+
+        SinglyLinkedNode<T> tempNode = this.head;
+        int count = 0;
+
+        if(position == 0){
+            return tempNode;
+        }
+
+        while (count <= this.size) {
+            if (count == position) {
+                return tempNode;
+            } else {
+                tempNode = tempNode.getNext();
+                count++;
+            }
+        }
+
+        return null;
+    }
+
     public T getLast() {
         return this.tail.getData();
     }
@@ -161,9 +201,9 @@ public class SinglyLinkedList<T> {
                 builder.append(tempNode.getData());
                 builder.append("]");
                 builder.append(" -> ");
-
                 nodeNumber++;
             }
+            builder.append("[ END ]");
         }else{
             return "[ LIST IS EMPTY ]";
         }

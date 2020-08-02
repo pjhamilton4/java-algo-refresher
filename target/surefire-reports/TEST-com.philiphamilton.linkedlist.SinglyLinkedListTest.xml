@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.023" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.054" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\phil_\.jdks\openjdk-14.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\phil_\AppData\Local\Temp\surefire3951644476928561625\surefirebooter15100819737888749346.jar C:\Users\phil_\AppData\Local\Temp\surefire3951644476928561625 2020-08-02T11-40-30_135-jvmRun1 surefire12423519012034934504tmp surefire_018330858297710338691tmp"/>
+    <property name="sun.java.command" value="C:\Users\phil_\AppData\Local\Temp\surefire2634193618821132616\surefirebooter4013687882506600409.jar C:\Users\phil_\AppData\Local\Temp\surefire2634193618821132616 2020-08-02T12-11-42_206-jvmRun1 surefire117005888206660379tmp surefire_011830945875386143304tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\code\java-algo-refresher\target\test-classes;D:\code\java-algo-refresher\target\classes;C:\Users\phil_\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.1\junit-jupiter-api-5.5.1.jar;C:\Users\phil_\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\phil_\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\phil_\.m2\repository\org\junit\platform\junit-platform-commons\1.5.1\junit-platform-commons-1.5.1.jar;C:\Users\phil_\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.1\junit-jupiter-engine-5.5.1.jar;C:\Users\phil_\.m2\repository\org\junit\platform\junit-platform-engine\1.5.1\junit-platform-engine-1.5.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="idea.version2020.1.1" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\phil_\AppData\Local\Temp\surefire3951644476928561625\surefirebooter15100819737888749346.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\phil_\AppData\Local\Temp\surefire2634193618821132616\surefirebooter4013687882506600409.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="14.0.2+12-46"/>
@@ -56,9 +56,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="testRemoveFirstWhenEmpty" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.013"/>
+  <testcase name="testInsertAtEndNode" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.032"/>
+  <testcase name="testInsertAtEnd" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0"/>
+  <testcase name="testRemoveFirstWhenEmpty" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.002"/>
   <testcase name="testRemoveFirstWithObjects" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.002"/>
-  <testcase name="testInsertAtBeginning" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.002"/>
-  <testcase name="testIsEmpty" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.001"/>
+  <testcase name="testAddNodeAt" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.002"/>
+  <testcase name="testInsertAtBeginning" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.001"/>
+  <testcase name="testIsEmpty" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.002"/>
+  <testcase name="testInsertAtBeginningNode" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0"/>
   <testcase name="testRemoveNth" classname="com.philiphamilton.linkedlist.SinglyLinkedListTest" time="0.001"/>
 </testsuite>

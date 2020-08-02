@@ -1,5 +1,6 @@
 package com.philiphamilton.linkedlist;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +12,14 @@ public class SinglyLinkedListTest {
     SinglyLinkedList<Integer> linkedList;
 
     @BeforeEach
-    public void init() {
+    public void initTest() {
         System.out.println("---------------------------------------");
         linkedList = new SinglyLinkedList<Integer>();
+    }
+
+    @AfterEach
+    public void cleanTeat(){
+        System.out.println("---------------------------------------");
     }
 
     @Test
@@ -30,6 +36,70 @@ public class SinglyLinkedListTest {
         System.out.println(linkedList.toString());
 
         assertEquals(Integer.valueOf(1), linkedList.getFirst());
+    }
+
+    @Test
+    public void testInsertAtBeginningNode(){
+        System.out.println("Testing testInsertAtBeginningNode");
+
+        SinglyLinkedNode<Integer> node = new SinglyLinkedNode<Integer>(1);
+
+        linkedList.insertAtBeginning(node);
+
+        System.out.println(linkedList.toString());
+
+        assertEquals(Integer.valueOf(1), linkedList.getFirst());
+    }
+
+    @Test
+    public void testInsertAtEnd(){
+        System.out.println("Testing insertAtBeginning");
+        linkedList.insertAtBeginning(1);
+
+        System.out.println(linkedList.toString());
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.insertAtEnd(2);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(2, linkedList.getLast());
+    }
+
+    @Test
+    public void testInsertAtEndNode(){
+        System.out.println("Testing testInsertAtEndNode");
+
+        SinglyLinkedNode<Integer> node = new SinglyLinkedNode<Integer>(1);
+
+        linkedList.insertAtBeginning(node);
+
+        System.out.println(linkedList.toString());
+
+        System.out.println("Before: " + linkedList.toString());
+
+        node = new SinglyLinkedNode<Integer>(2);
+
+        linkedList.insertAtEnd(node);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(2, linkedList.getLast());
+    }
+
+    @Test
+    public void testGetAt(){
+        System.out.println("Testing testGetAt() when empty");
+
+        assertNull(linkedList.getAt(0));
+
+        System.out.println("Testing testGetAt() with 1 entry");
+
+        linkedList.insertAtBeginning(1);
+
+        assertEquals(1, linkedList.getAt(0).getData());
+
     }
 
     @Test
@@ -94,6 +164,80 @@ public class SinglyLinkedListTest {
         System.out.println("After: " + linkedList.toString());
 
         assertNull(linkedList.getFirst());
+    }
+
+    @Test
+    public void testAddNodeAt(){
+        System.out.println("Testing testAddNodeAt() when empty");
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.addNodeAt(0, 1);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(1, linkedList.getFirst());
+
+        System.out.println("Testing testAddNodeAt() with head entry");
+
+        linkedList.insertAtBeginning(1);
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.addNodeAt(0, 2);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(2, linkedList.getAt(0).getData());
+
+        System.out.println("Testing testAddNodeAt() with two entries - add to front");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        linkedList.insertAtBeginning(2);
+
+        linkedList.insertAtBeginning(1);
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.addNodeAt(0, 3);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(3, linkedList.getAt(0).getData());
+
+        System.out.println("Testing testAddNodeAt() with two entries - add to middle");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        linkedList.insertAtBeginning(2);
+
+        linkedList.insertAtBeginning(1);
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.addNodeAt(1, 3);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(3, linkedList.getAt(1).getData());
+
+        System.out.println("Testing testAddNodeAt() with two entries - add to end");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        linkedList.insertAtBeginning(2);
+
+        linkedList.insertAtBeginning(1);
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.addNodeAt(2, 3);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(3, linkedList.getAt(2).getData());
+
     }
 
 }
