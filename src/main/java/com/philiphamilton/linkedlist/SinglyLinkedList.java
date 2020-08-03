@@ -90,11 +90,15 @@ public class SinglyLinkedList<T> {
     }
 
     public boolean contains(T target) {
+        if(isEmpty()){
+            return false;
+        }
         SinglyLinkedNode<T> tempNode = this.head;
         while (tempNode.getNext() != null) {
             if (tempNode.getData().equals(target)) {
                 return true;
             }
+            tempNode = tempNode.getNext();
         }
         return false;
     }
@@ -160,7 +164,7 @@ public class SinglyLinkedList<T> {
             return tempNode;
         }
 
-        while (count <= this.size) {
+        while (count < this.size) {
             if (count == position) {
                 return tempNode;
             } else {

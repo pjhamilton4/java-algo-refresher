@@ -100,6 +100,11 @@ public class SinglyLinkedListTest {
 
         assertEquals(1, linkedList.getAt(0).getData());
 
+
+        SinglyLinkedNode<Integer> temp = linkedList.getAt(10);
+
+        assertNull(temp);
+
     }
 
     @Test
@@ -164,6 +169,34 @@ public class SinglyLinkedListTest {
         System.out.println("After: " + linkedList.toString());
 
         assertNull(linkedList.getFirst());
+
+        System.out.println("Testing testRemoveNth() with multiple entries");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        linkedList.insertAtBeginning(1);
+        linkedList.insertAtBeginning(2);
+        linkedList.insertAtBeginning(3);
+        linkedList.insertAtBeginning(4);
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.removeNthNode(2);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(3, linkedList.getSize());
+
+        System.out.println("Before: " + linkedList.toString());
+
+        linkedList.removeNthNode(0);
+
+        System.out.println("After: " + linkedList.toString());
+
+        assertEquals(2, linkedList.getSize());
+
+
+
     }
 
     @Test
@@ -239,5 +272,71 @@ public class SinglyLinkedListTest {
         assertEquals(3, linkedList.getAt(2).getData());
 
     }
+
+    @Test
+    public void testContains(){
+        System.out.println("Testing testContains() when empty");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        boolean result = linkedList.contains(1);
+
+        assertFalse(result);
+
+        System.out.println("Testing testContains() when element is present");
+
+        linkedList = new SinglyLinkedList<Integer>();
+
+        linkedList.insertAtBeginning(1);
+        linkedList.insertAtBeginning(2);
+        linkedList.insertAtBeginning(3);
+
+        System.out.println("List to check: " + linkedList.toString());
+
+        result = linkedList.contains(3);
+
+        assertTrue(result);
+
+        result = linkedList.contains(12312);
+
+        assertFalse(result);
+    }
+
+    @Test
+    public void testGetSize(){
+        System.out.println("Testing testGetSize() when empty");
+
+        long totalSize = linkedList.getSize();
+
+        assertEquals(0, totalSize);
+
+        System.out.println("Testing testGetSize() with multiple entries");
+        linkedList.insertAtBeginning(1);
+
+        totalSize = linkedList.getSize();
+
+        assertEquals(1, totalSize);
+
+        linkedList.addNodeAt(1, 2);
+
+
+        totalSize = linkedList.getSize();
+
+        assertEquals(2, totalSize);
+
+    }
+
+    @Test
+    public void testConstructors(){
+        SinglyLinkedList<String> test = new SinglyLinkedList<String>("Test");
+
+        assertEquals("Test", test.getFirst());
+
+        test = new SinglyLinkedList<String>(new SinglyLinkedNode("Test"));
+
+        assertEquals("Test", test.getFirst());
+
+    }
+
 
 }
