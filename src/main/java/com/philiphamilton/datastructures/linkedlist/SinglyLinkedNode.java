@@ -1,6 +1,6 @@
-package com.philiphamilton.linkedlist;
+package com.philiphamilton.datastructures.linkedlist;
 
-public class SinglyLinkedNode<T> {
+public class SinglyLinkedNode<T> implements Node{
 
     private SinglyLinkedNode next;
     private T data;

@@ -1,4 +1,4 @@
-package com.philiphamilton.linkedlist;
+package com.philiphamilton.datastructures.linkedlist;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
