@@ -2,6 +2,7 @@ package com.philiphamilton;
 
 import com.philiphamilton.algorithms.recursion.Basic;
 import com.philiphamilton.datastructures.linkedlist.SinglyLinkedList;
+import com.philiphamilton.datastructures.tree.binary.BinaryTree;
 
 /**
  * Hello world!
@@ -28,6 +29,19 @@ public class App
         System.out.println(linked.toString());
         System.out.println(linked.getSize());
 
+        //Tree
+
+        // Binary Tree
+
+        BinaryTree bt = new BinaryTree();
+
+        bt.add(500);
+        bt.add(502);
+        bt.add(499);
+        bt.add(1);
+        bt.add(1000);
+
+        bt.traverseInOrder(bt.getRoot());
 
         // Recursion
         int test = Basic.fib(25);
