@@ -58,9 +58,11 @@ public class BinaryTree {
     }
 
     public void traverseInOrder(Node node) {
+        System.out.println("Current node: " + node);
         if (node != null) {
+            System.out.println("Left node");
             traverseInOrder(node.left);
-            System.out.println(" " + node.data);
+            System.out.println("Right node");
             traverseInOrder(node.right);
         }
     }

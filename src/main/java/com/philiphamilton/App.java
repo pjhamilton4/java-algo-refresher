@@ -29,17 +29,23 @@ public class App
         System.out.println(linked.toString());
         System.out.println(linked.getSize());
 
+        System.out.println("------------------------------------------------------------");
+
+
         //Tree
 
         // Binary Tree
 
         BinaryTree bt = new BinaryTree();
 
+        bt.add(8);
         bt.add(500);
         bt.add(502);
+        bt.add(2);
         bt.add(499);
         bt.add(1);
         bt.add(1000);
+        bt.add(501);
 
         bt.traverseInOrder(bt.getRoot());
 
