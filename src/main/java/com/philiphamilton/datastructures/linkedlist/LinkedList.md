@@ -16,4 +16,4 @@ A data structure that represents a sequence of nodes. Unlike arrays, linked list
 - ### Search
 - ### Delete    
 
-## Rules of thumb
+## Examples

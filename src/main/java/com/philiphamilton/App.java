@@ -1,7 +1,8 @@
 package com.philiphamilton;
 
 import com.philiphamilton.algorithms.recursion.Basic;
-import com.philiphamilton.datastructures.linkedlist.SinglyLinkedList;
+import com.philiphamilton.datastructures.linkedlist.simple.LinkedListSimpleImpl;
+import com.philiphamilton.datastructures.linkedlist.singly.SinglyLinkedList;
 import com.philiphamilton.datastructures.tree.binary.BinaryTree;
 
 /**
@@ -12,6 +13,18 @@ public class App
 {
     public static void main(String[] args )
     {
+        System.out.println("------------------- LINKED LIST - SIMPLE -------------------");
+
+        LinkedListSimpleImpl<Integer> simple = new LinkedListSimpleImpl<Integer>();
+        simple.insert(1);
+        simple.insert(2);
+        simple.insert(3);
+        simple.display();
+
+        System.out.println("------------------- LINKED LIST - SIMPLE END -------------------");
+
+        System.out.println("------------------- LINKED LIST - ADV -------------------");
+
         System.out.println("Creating linked list!");
         SinglyLinkedList<Integer> linked = new SinglyLinkedList<Integer>(1);
         System.out.println(linked.toString());
@@ -29,7 +42,7 @@ public class App
         System.out.println(linked.toString());
         System.out.println(linked.getSize());
 
-        System.out.println("------------------------------------------------------------");
+        System.out.println("------------------- LINKED LIST - ADV END -------------------");
 
 
         //Tree

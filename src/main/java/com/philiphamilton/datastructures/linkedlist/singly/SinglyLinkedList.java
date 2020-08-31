@@ -1,4 +1,4 @@
-package com.philiphamilton.datastructures.linkedlist;
+package com.philiphamilton.datastructures.linkedlist.singly;
 
 public class SinglyLinkedList<T> {
 
