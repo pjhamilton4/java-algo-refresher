@@ -71,11 +71,21 @@ public class App
 
 
         System.out.println("-------------------  SORTING - BUBBLE SORT SIMPLE -------------------");
-        BubbleSort<Integer> bubs = new BubbleSort<Integer>(new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1});
+        BubbleSort<?> bubs = new BubbleSort<Integer>(new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1});
         System.out.println(bubs.toString());
         bubs.sort();
         System.out.println(bubs.toString());
         bubs = new BubbleSort<Integer>(new Integer[]{9, 8, 5, 5, 5, 4, 3, 2, 1});
+        System.out.println(bubs.toString());
+        bubs.sort();
+        System.out.println(bubs.toString());
+
+        bubs = new BubbleSort<Double>(new Double[]{1.0,1.2,1.22,1.3,4.0,5.0,20.1111111111111,3.222222222,33422.32423});
+        System.out.println(bubs.toString());
+        bubs.sort();
+        System.out.println(bubs.toString());
+
+        bubs = new BubbleSort<Character>("zyxwvutsrqponmlkjihgfedcba".chars().mapToObj(c -> (char)c).toArray(Character[]::new));
         System.out.println(bubs.toString());
         bubs.sort();
         System.out.println(bubs.toString());
