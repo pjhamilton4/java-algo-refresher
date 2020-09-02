@@ -1,6 +1,7 @@
 package com.philiphamilton;
 
 import com.philiphamilton.algorithms.recursion.Basic;
+import com.philiphamilton.algorithms.sort.bubble.BubbleSort;
 import com.philiphamilton.datastructures.linkedlist.simple.LinkedListSimpleImpl;
 import com.philiphamilton.datastructures.linkedlist.singly.SinglyLinkedList;
 import com.philiphamilton.datastructures.tree.binary.BinaryTree;
@@ -62,8 +63,22 @@ public class App
 
         bt.traverseInOrder(bt.getRoot());
 
-        // Recursion
+        System.out.println("-------------------  RECURSION - SIMPLE -------------------");
         int test = Basic.fib(25);
         System.out.println("Recursive fib: " + test);
+
+        System.out.println("-------------------  RECURSION - SIMPLE END -------------------");
+
+
+        System.out.println("-------------------  SORTING - BUBBLE SORT SIMPLE -------------------");
+        BubbleSort<Integer> bubs = new BubbleSort<Integer>(new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1});
+        System.out.println(bubs.toString());
+        bubs.sort();
+        System.out.println(bubs.toString());
+        bubs = new BubbleSort<Integer>(new Integer[]{9, 8, 5, 5, 5, 4, 3, 2, 1});
+        System.out.println(bubs.toString());
+        bubs.sort();
+        System.out.println(bubs.toString());
+        System.out.println("-------------------  SORTING - BUBBLE SORT SIMPLE END -------------------");
     }
 }
