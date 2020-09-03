@@ -2,6 +2,7 @@ package com.philiphamilton;
 
 import com.philiphamilton.algorithms.recursion.Basic;
 import com.philiphamilton.algorithms.sort.bubble.BubbleSort;
+import com.philiphamilton.algorithms.sort.selection.SelectionSort;
 import com.philiphamilton.datastructures.linkedlist.simple.LinkedListSimpleImpl;
 import com.philiphamilton.datastructures.linkedlist.singly.SinglyLinkedList;
 import com.philiphamilton.datastructures.tree.binary.BinaryTree;
@@ -90,5 +91,27 @@ public class App
         bubs.sort();
         System.out.println(bubs.toString());
         System.out.println("-------------------  SORTING - BUBBLE SORT SIMPLE END -------------------");
+
+        System.out.println("-------------------  SORTING - SELECTION SORT SIMPLE -------------------");
+        SelectionSort<?> selects = new SelectionSort<Integer>(new Integer[]{9, 8, 7, 6, 5, 4, 3, 2, 1});
+        System.out.println(selects.toString());
+        selects.sort();
+        System.out.println(selects.toString());
+        selects = new SelectionSort<Integer>(new Integer[]{9, 8, 5, 5, 5, 4, 3, 2, 1});
+        System.out.println(selects.toString());
+        selects.sort();
+        System.out.println(selects.toString());
+
+        selects = new SelectionSort<Double>(new Double[]{1.0,1.2,1.22,1.3,4.0,5.0,20.1111111111111,3.222222222,33422.32423});
+        System.out.println(selects.toString());
+        selects.sort();
+        System.out.println(selects.toString());
+
+        selects = new SelectionSort<Character>("zyxwvutsrqponmlkjihgfedcba".chars().mapToObj(c -> (char)c).toArray(Character[]::new));
+        System.out.println(selects.toString());
+        selects.sort();
+        System.out.println(selects.toString());
+        System.out.println("-------------------  SORTING - SELECTION SORT SIMPLE END -------------------");
+
     }
 }

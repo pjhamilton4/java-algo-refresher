@@ -4,6 +4,6 @@ A simple sorting algorithm that steps through the elements in an array, compares
 
 ## Performance
 #### Best Case: O(n)
+#### Average Case: O(n^2)
 #### Worst Case: O(n^2)
-#### Average Complexity: O(n^2)
 #### Space Complexity: O(1)
